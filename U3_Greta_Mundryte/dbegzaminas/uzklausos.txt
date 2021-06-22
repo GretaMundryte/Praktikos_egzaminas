@@ -1,0 +1,20 @@
+create table generaline_parduotuve_prekes
+(ID int not null primary key auto_increment,
+pavadinimas varchar(50),
+kaina decimal(7,2) default 1.00,
+itraukimo_data date default current_timestamp);
+
+Insert into GENERALINE_PARDUOTUVE_PREKES (PAVADINIMAS , KAINA , ITRAUKIMO_DATA ) 
+values ('kamuolys', 5.98, '2021-02-02'), 
+('blynas', 1.22, '2021-10-10'), 
+('kramtoma guma', 1.00, '2019-11-11');
+
+select ID , KAINA , ITRAUKIMO_DATA from GENERALINE_PARDUOTUVE_PREKES order by KAINA desc;
+
+select ID , PAVADINIMAS from GENERALINE_PARDUOTUVE_PREKES where ITRAUKIMO_DATA >= '2020-01-01' and KAINA > 2;
+
+select ID from GENERALINE_PARDUOTUVE_PREKES where length(PAVADINIMAS ) = 5;
+
+alter table GENERALINE_PARDUOTUVE_PREKES add nutraukimo_data date;
+
+alter table GENERALINE_PARDUOTUVE_PREKES alter column NUTRAUKIMO_DATA date not null;
